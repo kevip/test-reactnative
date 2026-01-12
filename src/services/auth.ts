@@ -36,10 +36,8 @@ class AuthService {
         throw new Error('Invalid credentials');
       }
 
-      // Mock JWT token
-      const mockToken = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.${btoa(
-        JSON.stringify({ username: credentials.username, exp: Date.now() + 3600000 })
-      )}.mock_signature`;
+      // Mock JWT token (simplified for React Native)
+      const mockToken = `mock_jwt_token_${Date.now()}_${credentials.username}`;
 
       const response: AuthResponse = {
         token: mockToken,
